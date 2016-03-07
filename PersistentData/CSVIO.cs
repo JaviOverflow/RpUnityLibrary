@@ -2,7 +2,7 @@ using System;
 using System.Reflection;
 using System.Collections.Generic;
 
-public static class MyCSV {
+public static class CsvIO {
 
     /*
      * Item class must implement the following interface:
@@ -16,7 +16,7 @@ public static class MyCSV {
             throw new NotSupportedException("Operation not implemented");
 
         var itemsDict = new Dictionary<int, T>();
-        List<string[]> lines = MyCSV.UnwrapFile(path);
+        List<string[]> lines = CsvIO.UnwrapFile(path);
 
         foreach (string[] line in lines) {
             var item = (T) typeof(T).GetMethod( "FromFields" ).Invoke(null, new Object[]{line});

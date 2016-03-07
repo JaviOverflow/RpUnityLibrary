@@ -12,7 +12,7 @@ public static class FileCompiler {
         Debug.Log( string.Format("txt: {0} \nbin: {1}", txt_info.LastWriteTime, bin_info.LastWriteTime) );
 
         if (txt_info.LastAccessTimeUtc > bin_info.LastWriteTimeUtc) {
-            var itemsDict = MyCSV.LoadFromCSV<T>( resources_filepath_txt );
+            var itemsDict = CsvIO.LoadFromCSV<T>( resources_filepath_txt );
             BinaryIO.Save<Dictionary<int, T>>( editor_filepath_bin, itemsDict );
             AssetDatabase.Refresh();
             Debug.Log(string.Format( "{0}.bin recompiled", resources_filepath_txt ));

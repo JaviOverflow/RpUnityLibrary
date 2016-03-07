@@ -28,7 +28,7 @@ public abstract class AbstractAudioManager : MonoBehaviourUndestroyableSingleton
 
     private void SetAudioManagerReferences() 
     {
-        _AudioSource = GetComponent<AudioSource>();
+        _AudioSource = GetComponentInChildren<AudioSource>();
     }
 	
     private void LoadAudioClips() 
