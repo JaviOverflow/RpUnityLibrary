@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using UnityEditor;
+//using UnityEditor;
 using System.IO;
 using System.Collections.Generic;
 
@@ -14,7 +14,7 @@ public static class FileCompiler {
         if (txt_info.LastAccessTimeUtc > bin_info.LastWriteTimeUtc) {
             var itemsDict = CsvIO.LoadFromCSV<T>( resources_filepath_txt );
             BinaryIO.Save<Dictionary<int, T>>( editor_filepath_bin, itemsDict );
-            AssetDatabase.Refresh();
+            //AssetDatabase.Refresh();
             Debug.Log(string.Format( "{0}.bin recompiled", resources_filepath_txt ));
         } else {
             Debug.Log(string.Format( "{0}.bin is up to date", resources_filepath_txt ));
